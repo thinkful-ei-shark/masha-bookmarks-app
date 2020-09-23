@@ -11,6 +11,7 @@
   "author": "Masha Trius",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.14.0",
     "cuid": "^2.1.8",
     "jquery": "^3.5.1"
   },
