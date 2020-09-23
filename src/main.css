@@ -1,0 +1,34 @@
+.action-palette {
+  display: none;
+}
+
+.new-bookmark-form {
+  display: none;
+}
+
+.bookmark-list {
+  background: lightgray;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    lightpink,
+    lightpink 2px,
+    pink 2px,
+    pink 4px
+    );
+}
+
+.bookmark-item {
+  display: flex;
+  list-style: none;
+  margin: .125rem 0;
+  padding: .1875rem .5rem;
+  background: lightpink;
+}
+
+.bookmark-name {
+  flex: 99;
+  margin: 0 .75rem;
+}

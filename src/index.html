@@ -12,7 +12,64 @@
   <header>
     <h1>My Bookmarks</h1>
   </header>
-  <main></main>
+  <main>
+
+    <section class="js-action-palette action-palette">
+      <button>New</button>
+      <form class="js-dropdown">
+        <select id="filters">
+          <option>5+ Rating</option>
+          <option>4+ Rating</option>
+          <option>3+ Rating</option>
+          <option>2+ Rating</option>
+        </select>
+      </form>
+    </section>
+    <form class="js-new-bookmark-form new-bookmark-form">
+      <h2>Add New Bookmark</h2>
+      <label for="new-bookmark-url" class="hidden">Bookmark URL</label>
+      <input type="text" id="new-bookmark-url" 
+        placeholder="https://samplelink.code" />
+      <label for="new-bookmark-name" class="hidden">Bookmark Name</label>
+      <input type="text" id="new-bookmark-name" placeholder="Link name" />
+    </form>
+    <ul class="bookmark-list js-bookmark-list">
+      <li class="js-bookmark-item bookmark-item">
+        <div class="bookmark-delete"><i class="fas fa-trash-alt"></i></div>
+        <div class="bookmark-name">Title 3</div>
+        <div class="bookmark-rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+      </li>
+      <li class="js-bookmark-item bookmark-item">
+        <div class="bookmark-delete"><i class="fas fa-trash-alt"></i></div>
+        <div class="bookmark-name">Title 2</div>
+        <div class="bookmark-rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+      </li>
+      <li class="js-bookmark-item bookmark-item">
+        <div class="bookmark-delete"><i class="fas fa-trash-alt"></i></div>
+        <div class="bookmark-name">Title 1</div>
+        <div class="bookmark-rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+      </li>
+    </ul>
+  
+  </main>
 </body>
 
 </html>
