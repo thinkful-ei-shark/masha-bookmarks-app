@@ -13,62 +13,110 @@
     <h1>My Bookmarks</h1>
   </header>
   <main>
+    <form id="new-bookmark-form">
+      <section class="bookmark-meta">
+      <p>
+        <label class="hidden" for="new-bookmark-name">
+          New Bookmark name</label>
+        <input class="new-bookmark-form-input" type="text" id="new-bookmark-name" placeholder="New Bookmark Name" /></p>
+      <p><label class="hidden" for="new-bookmark-url">
+          New Bookmark Url</label>
+        <input class="new-bookmark-form-input" type="text" id="new-bookmark-url"
+          placeholder="URL, eg. https://example.code" /></p>
+      <p><label class="hidden" for="new-bookmark-rating">
+          New Bookmark Rating</label>
+        <span class="new-bookmark-rating new-bookmark-form-input">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </span>
+      </p>
+    </section>
+    <section class="bookmark-body">
+      <p><label class="hidden" for="new-bookmark-desc">
+          New Bookmary Description</label>
+        <textarea class="new-bookmark-form-input" id="new-bookmark-desc" rows=4 placeholder="Description"></textarea>
+      </p>
+      <p><button type="submit" class="new-bookmark-form-input">Submit</button></p>
+    </section>
+    </form>
+    <!-- <section class="js-action-palette action-palette">
 
-    <section class="js-action-palette action-palette">
-      <button>New</button>
-      <form class="js-dropdown">
-        <select id="filters">
-          <option>5+ Rating</option>
-          <option>4+ Rating</option>
-          <option>3+ Rating</option>
-          <option>2+ Rating</option>
+
+      <button class="js-new-bookmark new-bookmark">
+        <div>Add new bookmark</div>
+        <div><i class="fas fa-pencil-alt"></i></div>
+      </button>
+      <form class="js-filter-select-form filter-select-form">
+        <select id="filter-select">
+          <option disabled selected hidden>Filter by</option>
+          <option value=5>Show 5 Stars</option>
+          <option value=4>Show 4+ Stars</option>
+          <option value=3>Show 3+ Stars</option>
+          <option value=2>Show 2+ Stars</option>
+          <option value=1>Show All</option>
         </select>
       </form>
     </section>
-    <form class="js-new-bookmark-form new-bookmark-form">
-      <h2>Add New Bookmark</h2>
-      <label for="new-bookmark-url" class="hidden">Bookmark URL</label>
-      <input type="text" id="new-bookmark-url" 
-        placeholder="https://samplelink.code" />
-      <label for="new-bookmark-name" class="hidden">Bookmark Name</label>
-      <input type="text" id="new-bookmark-name" placeholder="Link name" />
-    </form>
+
     <ul class="bookmark-list js-bookmark-list">
       <li class="js-bookmark-item bookmark-item">
-        <div class="bookmark-delete"><i class="fas fa-trash-alt"></i></div>
-        <div class="bookmark-name">Title 3</div>
-        <div class="bookmark-rating">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="far fa-star"></i>
+        <section class="bookmark-meta"><button class="bookmark-name">Title 3</button>
         </div>
+          <div class="bookmark-line">
+          <button class="bookmark-delete"><i class="fas fa-trash-alt"></i></button>
+          
+          <div class="bookmark-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+        </section>
+        <section class="bookmark-body">
+          <p class="bookmark-description">
+
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tempor mi a nunc malesuada iaculis.
+            Integer ac aliquet velit, quis vulputate eros. Nulla non porttitor libero. Phasellus suscipit laoreet arcu
+            nec mattis. Proin sed nulla dui. Nulla hendrerit vestibulum varius. Praesent in laoreet quam. Duis eu orci
+            nec ligula auctor feugiat eget in erat. Nunc auctor quis mauris vel volutpat. Cras tempor sagittis metus,
+            sit amet semper nisi facilisis molestie. Nam nisl felis, congue nec mi nec, laoreet tempus ligula. Aliquam
+            semper, lectus sed ultricies tincidunt, massa nisl vulputate est, vitae lacinia orci diam et leo. Aenean
+            maximus tincidunt odio et imperdiet. Morbi quis nunc volutpat arcu vehicula varius. </p>
+          <p class="bookmark-link"><a href="#">Visit Site</a></p>
+        </section>
       </li>
       <li class="js-bookmark-item bookmark-item">
-        <div class="bookmark-delete"><i class="fas fa-trash-alt"></i></div>
-        <div class="bookmark-name">Title 2</div>
-        <div class="bookmark-rating">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="far fa-star"></i>
-          <i class="far fa-star"></i>
-          <i class="far fa-star"></i>
-        </div>
+        <section class="bookmark-line">
+          <button class="bookmark-delete"><i class="fas fa-trash-alt"></i></button>
+          <button class="bookmark-name">Title 2</button>
+          <div class="bookmark-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+        </section>
       </li>
       <li class="js-bookmark-item bookmark-item">
-        <div class="bookmark-delete"><i class="fas fa-trash-alt"></i></div>
-        <div class="bookmark-name">Title 1</div>
-        <div class="bookmark-rating">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="far fa-star"></i>
-          <i class="far fa-star"></i>
-        </div>
+        <section class="bookmark-line">
+          <button class="bookmark-delete"><i class="fas fa-trash-alt"></i></button>
+          <button class="bookmark-name">Title 1</button>
+          <div class="bookmark-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+        </section>
       </li>
-    </ul>
-  
+    </ul> -->
+
   </main>
 </body>
 
