@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   font-family: sans;
+  color: #004040;
 }
 
 .hidden {
@@ -9,10 +10,11 @@
 
 h1 {
   text-align: center;
+  margin: 0;
 }
 
-main {
-  background: lightpink;
+header, main {
+  background: pink;
   max-width: 40rem;
   margin: auto;
 }
@@ -66,7 +68,7 @@ main {
 }
 
 .bookmark-delete, .bookmark-name, .bookmark-rating,
- .bookmark-description, .bookmark-link {
+ .bookmark-description, .bookmark-link, .collapse-bookmark {
   border: none;
   margin: 0;
   padding: .1875rem;
@@ -78,11 +80,6 @@ main {
   list-style: none;
   display: flex;
   flex-direction: column;
-}
-
-.bookmark-meta {
-  display: flex;
-  flex: 1;
 }
 
 .bookmark-line {
@@ -97,6 +94,9 @@ main {
 .bookmark-name {
   flex: 1;
   text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .bookmark-rating {
@@ -104,42 +104,48 @@ main {
   font-size: .8rem;
 }
 
-.bookmark-description, .bookmark-link {
+.bookmark-meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.expanded .bookmark-name {
+  flex: unset;
+  text-align: center;
+  white-space: unset;
+}
+
+.expanded .bookmark-line {
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: baseline;
+  margin: 0 .1875rem;
+  align-items: flex-start;
+}
+
+.expanded footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.bookmark-description {
   padding: 0 1.5rem;
   margin: 0 .1875rem .1875rem;
 }
 
-.bookmark-link {
-  text-align: center;
-}
-
-.bookmark-link a:link {
-}
-
-.bookmark-link a:visited {
-
-}
-
-.bookmark-link a:hover {
-
-}
-
-.bookmark-link a:active {
-
+.bookmark-link, .collapse-bookmark {
+  margin: .5rem;
 }
 
 #new-bookmark-form {
   display: flex;
   flex-direction: column;
-}
-
-#new-bookmark-form > .bookmark-meta {
-  display: flex;
-  flex-direction: column;
+  padding: 1rem 0;
 }
 
 #new-bookmark-form p {
-  padding: 0 1rem;
+  margin: 1rem;
 }
 
 #new-bookmark-desc {
@@ -148,6 +154,18 @@ main {
 
 .new-bookmark-form-input {
   width: 100%;
+  background: papayawhip;
+  border: 1px solid lightcoral;
+  padding: .25rem;
+}
+
+.new-bookmark-rating {
+  width: 100%;
+}
+
+button.new-bookmark-form-input {
+  background: teal;
+  color: papayawhip;
 }
 
 .new-bookmark-rating {
@@ -155,8 +173,15 @@ main {
   text-align: center;
 }
 
+#new-bookmark-form-error {
+  text-align: center;
+  /* padding: .125rem; */
+  border: 3px solid lightcoral;
+  font-weight: bold;
+}
+
 @media screen and (min-width: 50rem) {
-  main {
+  header, main {
     max-width: 90rem;
   }
 
@@ -168,21 +193,6 @@ main {
     flex: 1;
     margin-bottom: .125rem;
     background-color: pink;
-  }
-
-  .bookmark-meta > .bookmark-name {
-    flex: unset;
-  }
-
-  .bookmark-meta > .bookmark-line {
-    justify-content: space-between;
-    margin: 0 .1875rem;
-    flex: unset;
-    align-items: flex-start;
-  }
-
-  .bookmark-meta {
-    flex-direction: column;
   }
 
   .bookmark-description {
