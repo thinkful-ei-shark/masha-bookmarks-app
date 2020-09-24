@@ -59,7 +59,7 @@ const deleteRecord = function (id) {
     {
       method: 'DELETE'
     }
-  )
+  );
 };
 
 export default {
@@ -67,4 +67,4 @@ export default {
   readRecords,
   updateRecord,
   deleteRecord
-}
+};

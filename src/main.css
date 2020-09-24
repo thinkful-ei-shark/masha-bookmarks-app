@@ -217,7 +217,6 @@ button.new-bookmark-form-input, .bookmark-link,
   .bookmark-line {
     flex: 1;
     margin-bottom: .125rem;
-    background-color: pink;
   }
 
   .bookmark-description {
