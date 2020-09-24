@@ -1,5 +1,5 @@
 const ratingId = function (id, rating) {
-  return `rating-${rating}`;
+  return `${id}-rating-${rating}`;
 };
 
 const starRating = function(item) {
@@ -19,14 +19,14 @@ const starRating = function(item) {
   }
   
   return stars.map(star => {
-    return `<label for="${ratingId(item.id, item.rating)}">
+    return `<label for="${ratingId(item.id, star.rating)}">
     <span class="hidden">
       Give a rating of ${star.rating} to ${item.title}
     </span>
     <i class="${star.class} fa-star"></i></label>
-    <input hidden type="radio" 
-      name="${ratingId(item.id, item.rating)}" 
-      id="${ratingId(item.id, item.rating)}" value="1"/>`;
+    <input class='hidden' type="radio" 
+      name="${item.id}-rating" 
+      id="${ratingId(item.id, star.rating)}" value="${star.rating}"/>`;
   }).join('');
 };
 

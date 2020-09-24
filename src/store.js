@@ -30,9 +30,16 @@ let adding = false;
 let error = null;
 let filter = 0;
 
+const updateBookmark = function (id, newData) {
+  const item = this.bookmarks.find(currentItem => currentItem.id === id );
+  Object.assign(item, newData);
+};
+
 export default {
   bookmarks,
   adding,
   error,
-  filter
+  filter,
+
+  updateBookmark
 };
