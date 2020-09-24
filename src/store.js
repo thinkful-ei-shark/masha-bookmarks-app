@@ -26,9 +26,10 @@ const bookmarks = [
   }
 ];
 
-let adding = false;
+let newBookmark = {};
 let error = null;
 let filter = 0;
+let currentView = 'bookmarkList';
 
 const updateBookmark = function (id, newData) {
   const item = this.bookmarks.find(currentItem => currentItem.id === id);
@@ -46,9 +47,10 @@ const toggleExpandBookmark = function (id) {
 
 export default {
   bookmarks,
-  adding,
+  newBookmark,
   error,
   filter,
+  currentView,
 
   updateBookmark,
   deleteBookmark,

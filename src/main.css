@@ -13,6 +13,10 @@ h1 {
   margin: 0;
 }
 
+h2 {
+  margin-top: 0;
+}
+
 header, main {
   background: #ffcfd7;
   max-width: 40rem;
