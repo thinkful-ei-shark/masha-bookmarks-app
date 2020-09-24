@@ -40,14 +40,13 @@ const main = function () {
   store.bookmarks = [];
   api.readRecords()
     .then(response => {
-      console.log('initializing store')
       response.forEach(bookmark => {
         store.bookmarks.push({
           id: bookmark.id,
           title: bookmark.title,
           rating: bookmark.rating,
           url: bookmark.url,
-          description: bookmark.description,
+          description: bookmark.desc,
           expanded: false
         });
       });

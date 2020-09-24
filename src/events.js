@@ -7,6 +7,14 @@ const findBookmarkId = function (target) {
   return $(target).closest('li').data('id');
 };
 
+const handleToggleExpandBookmark = function () {
+  $('main').on('click', '.bookmark-name, .collapse-bookmark', event => {
+    const id = findBookmarkId(event.currentTarget);
+    store.toggleExpandBookmark(id);
+    render('bookmarkList');
+  });
+};
+
 const handleRatingChange = function () {
   $('main').on('change', '.bookmark-rating', event => {
     const newRating = $(event.currentTarget)
@@ -31,6 +39,7 @@ const handleDeleteBookmark = function () {
 };
 
 const bindEventHandlers = function () {
+  handleToggleExpandBookmark();
   handleRatingChange();
   handleDeleteBookmark();
 };

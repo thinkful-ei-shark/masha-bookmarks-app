@@ -39,6 +39,11 @@ const deleteBookmark = function (id) {
   this.bookmarks = this.bookmarks.filter(currentItem => currentItem.id !== id);
 };
 
+const toggleExpandBookmark = function (id) {
+  const item = this.bookmarks.find(currentItem => currentItem.id === id);
+  item.expanded = !item.expanded;
+};
+
 export default {
   bookmarks,
   adding,
@@ -46,5 +51,7 @@ export default {
   filter,
 
   updateBookmark,
-  deleteBookmark
+  deleteBookmark,
+
+  toggleExpandBookmark
 };

@@ -126,16 +126,11 @@ main {
   font-size: .8rem;
 }
 
-.bookmark-meta {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
 .expanded .bookmark-name {
   flex: unset;
   text-align: center;
   white-space: unset;
+  margin-bottom: 1rem;
 }
 
 .expanded .bookmark-line {
@@ -159,6 +154,10 @@ main {
 .bookmark-link, .collapse-bookmark {
   margin: .5rem;
   flex: 1;
+}
+
+.collapse-bookmark {
+  margin-left: 1.5rem;
 }
 
 #new-bookmark-form {
@@ -210,8 +209,18 @@ button.new-bookmark-form-input, .bookmark-link,
     max-width: 90rem;
   }
 
-  .bookmark-item {
+  .bookmark {
+    display: flex;
     flex-direction: row;
+    justify-content: stretch;
+  }
+
+  .bookmark h2 {
+    text-align: left;
+    order: 2;
+  }
+  .bookmark-item {
+    flex-direction: column;
   }
 
   .bookmark-line {
@@ -219,11 +228,16 @@ button.new-bookmark-form-input, .bookmark-link,
     margin-bottom: .125rem;
   }
 
+  .expanded .bookmark-line {
+    max-width: 8rem;
+  }
+
   .bookmark-description {
     margin: 0;
   }
 
   .bookmark-body {
+    order: 3;
     flex: 2;
   }
 
