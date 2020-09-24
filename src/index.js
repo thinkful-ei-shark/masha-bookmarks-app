@@ -40,6 +40,7 @@ const main = function () {
   store.bookmarks = [];
   api.readRecords()
     .then(response => {
+      console.log('initializing store')
       response.forEach(bookmark => {
         store.bookmarks.push({
           id: bookmark.id,

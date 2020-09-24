@@ -3,11 +3,15 @@ import store from './store';
 import api from './api';
 import { render } from './render';
 
+const findBookmarkId = function (target) {
+  return $(target).closest('li').data('id');
+};
+
 const handleRatingChange = function () {
   $('main').on('change', '.bookmark-rating', event => {
     const newRating = $(event.currentTarget)
       .find('input[type="radio"]:checked').val();
-    const id = $(event.currentTarget).closest('li').data('id');
+    const id = findBookmarkId(event.currentTarget);
     const updateData = {
       rating: parseInt(newRating)
     };
@@ -17,8 +21,18 @@ const handleRatingChange = function () {
   });
 };
 
+const handleDeleteBookmark = function () {
+  $('main').on('click', '.bookmark-delete', event => {
+    const id = findBookmarkId(event.currentTarget);
+    store.deleteBookmark(id);
+    api.deleteRecord(id);
+    render('bookmarkList');
+  });
+};
+
 const bindEventHandlers = function () {
   handleRatingChange();
+  handleDeleteBookmark();
 };
 
 export {bindEventHandlers};

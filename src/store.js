@@ -31,8 +31,12 @@ let error = null;
 let filter = 0;
 
 const updateBookmark = function (id, newData) {
-  const item = this.bookmarks.find(currentItem => currentItem.id === id );
+  const item = this.bookmarks.find(currentItem => currentItem.id === id);
   Object.assign(item, newData);
+};
+
+const deleteBookmark = function (id) {
+  this.bookmarks = this.bookmarks.filter(currentItem => currentItem.id !== id);
 };
 
 export default {
@@ -41,5 +45,6 @@ export default {
   error,
   filter,
 
-  updateBookmark
+  updateBookmark,
+  deleteBookmark
 };
