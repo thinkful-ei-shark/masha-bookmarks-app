@@ -7,6 +7,22 @@ const findBookmarkId = function (target) {
   return $(target).closest('li').data('id');
 };
 
+const handleNewBookmarkFormSubmit = function () {
+  $('main').on('submit', '#new-bookmark-form', event => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const newBookmark = {};
+    formData.forEach((val, name) => newBookmark[name] = val);
+    api.createRecord(newBookmark)
+      .then(data => {
+        store.addBookmarkToStore(data);
+        store.newBookmark = {};
+        store.currentView = 'bookmarkList';
+        render();
+      });
+  });
+};
+
 const handleToggleExpandBookmark = function () {
   $('main').on('click', '.js-bookmark-name, .collapse-bookmark', event => {
     const id = findBookmarkId(event.currentTarget);
@@ -39,7 +55,7 @@ const handleDeleteBookmark = function () {
 };
 
 const handleAddNewBookmark = function () {
-  $('main').on('click', '.js-new-bookmark', event => {
+  $('main').on('click', '.js-new-bookmark', () => {
     store.currentView = 'newBookmark';
     render();
   });
@@ -61,7 +77,7 @@ const handleNewBookmarkRatingChange = function () {
 
 const handleFilterBookmarks = function () {
   $('main').on('change', '#filter-select', event => {
-    store.filter = $('#filter-select').val();
+    store.filter = $(event.target).val();
     render();
   });
 };
@@ -73,6 +89,7 @@ const bindEventHandlers = function () {
   handleAddNewBookmark();
   handleNewBookmarkRatingChange();
   handleFilterBookmarks();
+  handleNewBookmarkFormSubmit();
 };
 
 export { bindEventHandlers };

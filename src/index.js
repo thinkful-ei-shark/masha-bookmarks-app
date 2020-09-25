@@ -33,21 +33,13 @@ const main = function () {
   //     rating: bm.rating
   //   }
   // ))
+
   bindEventHandlers();
 
   store.bookmarks = [];
   api.readRecords()
     .then(response => {
-      response.forEach(bookmark => {
-        store.bookmarks.push({
-          id: bookmark.id,
-          title: bookmark.title,
-          rating: bookmark.rating,
-          url: bookmark.url,
-          description: bookmark.desc,
-          expanded: false
-        });
-      });
+      response.forEach(bookmark => store.addBookmarkToStore(bookmark));
       render();
     });
 };

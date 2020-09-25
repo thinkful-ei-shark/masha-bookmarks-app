@@ -5,18 +5,21 @@ const ratingId = function (id, rating) {
 };
 
 const starRating = function (item) {
+
   let stars = [];
   for (let i = 1; i <= item.rating; i++) {
     stars.push({
       rating: i,
-      class: 'fas'
+      class: 'fas',
+      checked: i === item.rating ? 'checked' : ''
     });
   }
 
   for (let i = item.rating; i < 5; i++) {
     stars.push({
       rating: i + 1,
-      class: 'far'
+      class: 'far',
+      checked: ''
     });
   }
 
@@ -26,8 +29,8 @@ const starRating = function (item) {
       Give a rating of ${star.rating} to ${item.title}
     </span>
     <i class="${star.class} fa-star"></i></label>
-    <input class='hidden' type="radio" 
-      name="${item.id}-rating" 
+    <input class='hidden' type="radio" ${star.checked}
+      name="rating" 
       id="${ratingId(item.id, star.rating)}" value="${star.rating}"/>`;
   }).join('');
 };
@@ -127,12 +130,12 @@ const newBookmarkForm = function () {
         <p>
           <label class="hidden" for="new-bookmark-name">
             New Bookmark name</label>
-          <input class="new-bookmark-form-input" type="text" id="new-bookmark-name" placeholder="New Bookmark Name" 
+          <input class="new-bookmark-form-input" type="text" name="title" id="new-bookmark-name" placeholder="New Bookmark Name" 
               ${title}/>
         </p >
         <p><label class="hidden" for="new-bookmark-url">
     New Bookmark Url</label>
-          <input class="new-bookmark-form-input" type="text" id="new-bookmark-url"
+          <input class="new-bookmark-form-input" type="text" name="url" id="new-bookmark-url"
             placeholder="URL, eg. https://example.code" ${url}/></p>
         <p><label class="hidden" for="new-bookmark-rating">
     New Bookmark Rating</label>
@@ -144,7 +147,7 @@ const newBookmarkForm = function () {
       <section class="bookmark-body">
         <p><label class="hidden" for="new-bookmark-description">
       New Bookmary Description</label>
-          <textarea class="new-bookmark-form-input" id="new-bookmark-description" rows=4 placeholder="Description">${description}</textarea>
+          <textarea class="new-bookmark-form-input" name="desc" id="new-bookmark-description" rows=4 placeholder="Enter description">${description}</textarea>
         </p>
         ${error}
 

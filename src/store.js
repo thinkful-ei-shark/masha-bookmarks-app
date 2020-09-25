@@ -45,6 +45,17 @@ const toggleExpandBookmark = function (id) {
   item.expanded = !item.expanded;
 };
 
+const addBookmarkToStore = function (bookmark) {
+  this.bookmarks.push({
+    id: bookmark.id,
+    title: bookmark.title,
+    rating: bookmark.rating,
+    url: bookmark.url,
+    description: bookmark.desc,
+    expanded: false
+  });
+};
+
 export default {
   bookmarks,
   newBookmark,
@@ -54,6 +65,7 @@ export default {
 
   updateBookmark,
   deleteBookmark,
+  addBookmarkToStore,
 
   toggleExpandBookmark
 };
