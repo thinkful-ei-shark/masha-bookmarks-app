@@ -27,7 +27,6 @@ const bookmarks = [
 ];
 
 let newBookmark = {};
-let error = null;
 let filter = 0;
 let currentView = 'bookmarkList';
 
@@ -51,7 +50,7 @@ const addBookmarkToStore = function (bookmark) {
     title: bookmark.title,
     rating: bookmark.rating,
     url: bookmark.url,
-    description: bookmark.desc,
+    description: bookmark.desc ? bookmark.desc : '',
     expanded: false
   });
 };
@@ -59,7 +58,6 @@ const addBookmarkToStore = function (bookmark) {
 export default {
   bookmarks,
   newBookmark,
-  error,
   filter,
   currentView,
 

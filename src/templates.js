@@ -117,11 +117,12 @@ const newBookmarkForm = function () {
   const title = store.newBookmark.title ?
     `value="${store.newBookmark.title}"` : '';
   const rating = starRating({
-    rating: store.newBookmark.rating ? store.newBookmark.rating : 0, 
-    title: 'new-bookmark'});
-  const description = store.newBookmark.description ? 
+    rating: store.newBookmark.rating ? store.newBookmark.rating : 0,
+    title: 'new-bookmark'
+  });
+  const description = store.newBookmark.description ?
     store.newBookmark.description : '';
-  const url = store.newBookmark.url ? 
+  const url = store.newBookmark.url ?
     `value="${store.newBookmark.url}"` : '';
   const error = store.error ? `<p id='new-bookmark-form-error'>${store.error}</p>` : '';
   return `
@@ -131,13 +132,13 @@ const newBookmarkForm = function () {
         <p>
           <label class="hidden" for="new-bookmark-name">
             New Bookmark name</label>
-          <input class="new-bookmark-form-input" type="text" name="title" id="new-bookmark-name" placeholder="New Bookmark Name" 
-              ${title}/>
+          <input class="new-bookmark-form-input" type="text" name="title" id="new-bookmark-name" placeholder="New Bookmark Name"
+          required ${title}/>
         </p >
         <p><label class="hidden" for="new-bookmark-url">
     New Bookmark Url</label>
-          <input class="new-bookmark-form-input" type="text" name="url" id="new-bookmark-url"
-            placeholder="URL, eg. https://example.code" ${url}/></p>
+          <input class="new-bookmark-form-input" type="url" name="url" id="new-bookmark-url"
+            placeholder="URL, eg. https://example.code" required ${url}/></p>
         <p><label class="hidden" for="new-bookmark-rating">
     New Bookmark Rating</label>
           <div class="js-new-bookmark-rating new-bookmark-rating">
