@@ -70,7 +70,7 @@ const listItem = function (item) {
           <i class="fas fa-trash-alt"></i>
         </button>
         <button class="js-bookmark-name bookmark-name">${item.title}</button>
-        <div class="bookmark-rating">
+        <div class="bookmark-rating js-bookmark-rating">
         ${starRating(item)}
         </div>
       </section>
@@ -95,7 +95,7 @@ const actionPalette = function () {
         <div class="new-bookmark-icon"><i class="fas fa-pencil-alt"></i></div>
         <div class="new-bookmark-button-label">Add new bookmark</div>
       </button>
-      <form class="js-filter-select-form filter-select-form">
+      <div class="filter-bookmarks">
         <select id="filter-select">
           <option disabled selected hidden>Filter by</option>
           <option value=5>Show 5 Stars</option>
@@ -104,7 +104,7 @@ const actionPalette = function () {
           <option value=2>Show 2+ Stars</option>
           <option value=1>Show All</option>
         </select>
-      </form>
+      </div>
     </section>
   `;
 };
@@ -122,7 +122,7 @@ const newBookmarkForm = function () {
   const error = store.error ? `<p id='new-bookmark-form-error'>${store.error}</p>` : '';
   return `
   <h2>Add New Bookmark</h2>
-    <form id="new-bookmark-form js-new-bookmark-form">
+    <form id="new-bookmark-form">
       <section>
         <p>
           <label class="hidden" for="new-bookmark-name">

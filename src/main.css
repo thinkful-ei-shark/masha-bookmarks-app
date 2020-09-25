@@ -39,7 +39,7 @@ main {
   position: relative;
 }
 
-.filter-select-form::after {
+.filter-bookmarks::after {
   content: url("data:image/svg+xml,<svg width='12' height='12' xmlns='http://www.w3.org/2000/svg'><path d='m0,6l6,6l6,-6l-8,0z'/><path fill='none' d='m0,0l8,0l0,8l-8,0l0,-8z'/></svg>");;
   position: absolute;
   top: .25rem;
