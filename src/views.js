@@ -5,14 +5,15 @@ const bookmarkList = function () {
   const actionPalette = templates.actionPalette();
   const bookmarks = store.bookmarks.filter(bookmark => bookmark.rating >= store.filter);
   const bookmarkList = templates.bookmarkList(bookmarks);
-  return [ actionPalette, bookmarkList ];
+  const errorMessage = templates.errorMessage();
+  return [ actionPalette, bookmarkList, errorMessage ];
 };
 
 const newBookmark = function () {
   const newBookmarkForm = templates.newBookmarkForm();
-  return [newBookmarkForm];
+  const errorMessage = templates.errorMessage();
+  return [ newBookmarkForm, errorMessage ];
 };
-
 export default {
   bookmarkList,
   newBookmark

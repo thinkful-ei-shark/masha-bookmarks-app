@@ -19,6 +19,11 @@ const handleNewBookmarkFormSubmit = function () {
         store.newBookmark = {};
         store.currentView = 'bookmarkList';
         render();
+      })
+      .catch(error => {
+        store.error = error;
+        render();
+        store.error = null;
       });
   });
 };
@@ -43,6 +48,11 @@ const handleRatingChange = function () {
       .then(() => {
         store.updateBookmark(id, updateData);
         render();
+      })
+      .catch(error => {
+        store.error = error;
+        render();
+        store.error = null;
       });
   });
 };
@@ -54,6 +64,11 @@ const handleDeleteBookmark = function () {
       .then(() => {
         store.deleteBookmark(id);
         render();
+      })
+      .catch(error => {
+        store.error = error;
+        render();
+        store.error = null;
       });
   });
 };

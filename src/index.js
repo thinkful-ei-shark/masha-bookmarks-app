@@ -41,6 +41,10 @@ const main = function () {
     .then(response => {
       response.forEach(bookmark => store.addBookmarkToStore(bookmark));
       render();
+    })
+    .catch(error => {
+      store.error = error
+      render();
     });
 };
 

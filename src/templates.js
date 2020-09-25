@@ -1,5 +1,9 @@
 import store from './store';
 
+const errorMessage = function () {
+  return store.error ? `<footer class="error">API Error ${store.error.code}: ${store.error.message}</footer>` : '';
+};
+
 const ratingId = function (id, rating) {
   return `${id}-rating-${rating}`;
 };
@@ -60,8 +64,7 @@ const listItem = function (item) {
           <button class="bookmark-link">Visit Site</button>
         </footer>
       </section>
-
-      </section>
+    </section>
   </li>
     `;
   } else {
@@ -124,7 +127,6 @@ const newBookmarkForm = function () {
     store.newBookmark.description : '';
   const url = store.newBookmark.url ?
     `value="${store.newBookmark.url}"` : '';
-  const error = store.error ? `<p id='new-bookmark-form-error'>${store.error}</p>` : '';
   return `
   <h2>Add New Bookmark</h2>
     <form id="new-bookmark-form">
@@ -151,7 +153,6 @@ const newBookmarkForm = function () {
       New Bookmary Description</label>
           <textarea class="new-bookmark-form-input" name="desc" id="new-bookmark-description" rows=4 placeholder="Enter description">${description}</textarea>
         </p>
-        ${error}
 
         <p><button type="submit" class="new-bookmark-form-input">Submit</button></p>
       </section >
@@ -160,6 +161,7 @@ const newBookmarkForm = function () {
 };
 
 export default {
+  errorMessage,
   bookmarkList,
   actionPalette,
   newBookmarkForm

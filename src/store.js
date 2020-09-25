@@ -26,6 +26,7 @@ const bookmarks = [
   }
 ];
 
+let error = null;
 let newBookmark = {};
 let filter = 0;
 let currentView = 'bookmarkList';
@@ -60,6 +61,7 @@ export default {
   newBookmark,
   filter,
   currentView,
+  error,
 
   updateBookmark,
   deleteBookmark,
