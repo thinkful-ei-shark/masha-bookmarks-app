@@ -39,18 +39,22 @@ const handleRatingChange = function () {
     const updateData = {
       rating: parseInt(newRating)
     };
-    store.updateBookmark(id, updateData);
-    api.updateRecord(id, updateData);
-    render();
+    api.updateRecord(id, updateData)
+      .then(() => {
+        store.updateBookmark(id, updateData);
+        render();
+      });
   });
 };
 
 const handleDeleteBookmark = function () {
   $('main').on('click', '.js-bookmark-delete', event => {
     const id = findBookmarkId(event.currentTarget);
-    store.deleteBookmark(id);
-    api.deleteRecord(id);
-    render();
+    api.deleteRecord(id)
+      .then(() => {
+        store.deleteBookmark(id);
+        render();
+      });
   });
 };
 
