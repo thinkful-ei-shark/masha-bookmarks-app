@@ -105,7 +105,8 @@ const actionPalette = function () {
           <option value=4>Show 4+ Stars</option>
           <option value=3>Show 3+ Stars</option>
           <option value=2>Show 2+ Stars</option>
-          <option value=1>Show All</option>
+          <option value=1>Show 1+ Stars</option>
+          <option value=0>Show All</option>
         </select>
       </div>
     </section>
