@@ -59,12 +59,20 @@ const handleNewBookmarkRatingChange = function () {
   });
 };
 
+const handleFilterBookmarks = function () {
+  $('main').on('change', '#filter-select', event => {
+    store.filter = $('#filter-select').val();
+    render();
+  });
+};
+
 const bindEventHandlers = function () {
   handleToggleExpandBookmark();
   handleRatingChange();
   handleDeleteBookmark();
   handleAddNewBookmark();
   handleNewBookmarkRatingChange();
+  handleFilterBookmarks();
 };
 
 export { bindEventHandlers };

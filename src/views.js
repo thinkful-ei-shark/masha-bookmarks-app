@@ -3,7 +3,8 @@ import templates from './templates';
 
 const bookmarkList = function () {
   const actionPalette = templates.actionPalette();
-  const bookmarkList = templates.bookmarkList(store.bookmarks);
+  const bookmarks = store.bookmarks.filter(bookmark => bookmark.rating >= store.filter);
+  const bookmarkList = templates.bookmarkList(bookmarks);
   return [ actionPalette, bookmarkList ];
 };
 

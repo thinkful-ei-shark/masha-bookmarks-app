@@ -33,8 +33,6 @@ const main = function () {
   //     rating: bm.rating
   //   }
   // ))
-
-
   bindEventHandlers();
 
   store.bookmarks = [];
