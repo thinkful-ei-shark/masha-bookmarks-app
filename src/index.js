@@ -12,31 +12,7 @@ import store from './store';
 
 import api from './api';
 
-// const deleteAllRecords = function () {
-//   return api.readRecords()
-//     .then(data => {
-//       data.forEach(datum => {
-//         api.deleteRecord(datum.id);
-//       });
-//     })
-//     .then(api.readRecords())
-//     .then(res =>
-//       res ? console.log(res) : console.log('database cleared'));
-// };
-
-const main = function () {
-  // store.bookmarks.forEach(bm => api.createRecord(
-  //   {
-  //     title: bm.title,
-  //     url: bm.url,
-  //     desc: bm.description,
-  //     rating: bm.rating
-  //   }
-  // ))
-
-  bindEventHandlers();
-
-  store.bookmarks = [];
+const initStore = function () {
   api.readRecords()
     .then(response => {
       response.forEach(bookmark => store.addBookmarkToStore(bookmark));
@@ -47,6 +23,12 @@ const main = function () {
       render();
       store.error = null;
     });
+};
+
+const main = function () {
+  bindEventHandlers();
+  initStore();
+  store.bookmarks = [];
 };
 
 $(main);
